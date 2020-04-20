@@ -1,0 +1,14 @@
+# ------------------------------------------------------------------------------------
+# This is  the html code for displaying images from dog.ceo
+# The images are randomly generated
+# Author: Courtney Graves
+# ------------------------------------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<body>
+{% for image in images %}
+<img src={{image}} width="350" height="350" alt="dog images">
+{% endfor %}
+</body>
+</html>
