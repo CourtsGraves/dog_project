@@ -1,0 +1,59 @@
+# ------------------------------------------------------------------------------------
+# These are the statments to create a database & table in Cassandra 
+# Author: Courtney Graves
+# ------------------------------------------------------------------------------------
+
+# Create Keyspace
+CREATE keyspace Dogs with replication = {'class' : 'SimpleStrategy', 'replication_factor' : 1}; 
+
+USE Dogs;
+
+# Create Dog table with columns
+CREATE TABLE Dog_Table(
+Id int PRIMARY KEY,
+Name text,
+Breed text,
+Age int,
+Good_Girl_Or_Boy text,
+Would_Pet_Rating int);
+
+# Add information into the table
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (1, 'Holly', 'West Highland Terrier', 14, 'Good Girl', 15);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (2, 'Ruby', 'West Highland Terrier', 5, 'Good Girl', 12);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (3, 'Lily', 'Springer Spaniel', 2, 'Good Girl', 16);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (4, 'Skye', 'Staffordshire Terrier', 10, 'Good Girl', 14);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (5, 'Willbur', 'Labrador', 7, 'Good Boy', 10);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (6, 'Roly', 'Dalmation', 2, 'Good Boy', 11);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (7, 'Muffin', 'Pomeranian', 6, 'Good Boy', 16);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (8, 'Fluffy', 'Samoyed', 12, 'Good Girl', 15);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (9, 'Lucky', 'Husky', 4, 'Good Boy', 10);
+
+INSERT INTO Dogs.Dog_Table (Id, Name, Breed, Age, Good_Girl_Or_Boy, Would_Pet_Rating)
+VALUES (10, 'Pudding', 'Chihuahua', 9, 'Good Boy', 11);
+
+# Create a role
+# CREATE ROLE Courts
+# WITH PASSWORD = 'CourtsD0gs'
+# AND LOGIN = true;
+
+# Grant permissions to role
+# CREATE ROLE Dogs_Admin;
+# GRANT ALL PERMISSIONS on KEYSPACE Dogs to Dogs_Admin;
+# GRANT Dogs_Admin TO Courts;
