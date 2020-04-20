@@ -1,0 +1,11 @@
+# ------------------------------------------------------------------------------------
+# This is the requirements.txt for the application
+# This contains the packages needed for the dockerfile to build the applicaiton in
+# a container
+# Author: Courtney Graves
+# ------------------------------------------------------------------------------------
+
+pip
+Flask
+cassandra-driver
+requests
