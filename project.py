@@ -116,9 +116,9 @@ def profile(name):
         rows = session.execute( """Select*From Dogs.Dog_Table
                                 where name = '{}' allow filtering""".format(name))
         for Dogs in rows:
-                return jsonify('<h1>This Dog {}, aged {}, is a {} and a {}! They are very petable and has a would pet rating of {} out of 10!</h1>'.format(name,Dogs.age,Dogs.breed,Dogs.good_girl_or_boy,Dogs.would_pet_rating)), 200
+                return jsonify('This Dog {}, aged {}, is a {} and a {}! They are very petable and has a would pet rating of {} out of 10!'.format(name,Dogs.age,Dogs.breed,Dogs.good_girl_or_boy,Dogs.would_pet_rating)), 200
 
-        return jsonify('<h1>Error, this Dog is not in the system yet!</h1>'), 404
+        return jsonify('Error, this Dog is not in the system yet!'), 404
 
 # Post method to add to the database, used with a curl to add the data
 @app.route('/dogs/add', methods=['POST'])
@@ -130,7 +130,7 @@ def create():
 @app.route('/dogs/update/<name>', methods=['PUT'])
 def update(name):
         session.execute("""UPDATE Dogs.Dog_table SET breed = '{}' WHERE id = {}""".format(request.json['breed'],(int(request.json['id']))))
-        return jsonify({'Message':'Updated: dogs/{}'.format(request.json['name'])}), 200
+        return jsonify({'Message':'Updated: dogs/{}'.format(name)}), 200
 
 # Delete method to delete information in the database, parameters accepted in the URL
 @app.route('/dogs/delete/<id>', methods=['DELETE'])
