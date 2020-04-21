@@ -199,10 +199,10 @@ Date: Mon, 20 Apr 2020 10:02:22 GMT
 This is an example of a PUT request for the Cassandra database. This code will update existing information for a dog in the table.
 
 ```
-@app.route('/dogs/update', methods=['PUT'])
-def update():
+@app.route('/dogs/update/<name>', methods=['PUT'])
+def update(name):
         session.execute("""UPDATE Dogs.Dog_table SET breed = '{}' WHERE id ={}""".format(request.json['breed'],(int(request.json['id']))))
-        return jsonify({'Message':'Updated: dogs/{}'.format(request.json['name'])}), 200
+        return jsonify({'Message':'Updated: dogs/{}'.format(name)}), 200
 ```
 
 Example of the curl request: 
